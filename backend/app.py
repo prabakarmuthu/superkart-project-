@@ -4,7 +4,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-model = joblib.load("SuperKart_prediction_model_v1_0.joblib")
+model = joblib.load("superkart_model.joblib")
 
 @app.route("/predict", methods=["POST"])
 def predict():
