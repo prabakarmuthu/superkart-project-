@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
-import joblib
 import pandas as pd
+import joblib
 
 app = Flask(__name__)
 
 model = joblib.load("superkart_model.joblib")
+
+@app.route("/")
+def home():
+    return "SuperKart API Running"
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -17,7 +21,7 @@ def predict():
 
     return jsonify(
         {
-            "predicted_sales": float(prediction[0])
+            "Predicted_Sales": float(prediction[0])
         }
     )
 
